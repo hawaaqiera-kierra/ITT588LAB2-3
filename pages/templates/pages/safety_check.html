@@ -1,0 +1,102 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block title %}Safety Check{% endblock %}
+
+{% block header %}
+<section class="page-hero">
+  <div class="container">
+    <div class="crumb">Self-check</div>
+    <h1>Safety check</h1>
+    <p id="greeting">Answer a few questions to see suggested next steps.</p>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container" style="max-width: 860px;">
+    <div class="row g-4">
+      <div class="col-12">
+        <div class="soft-card">
+          <form id="safetyForm" novalidate>
+            <div class="mb-3">
+              <label for="name" class="form-label fw-semibold">First name or nickname (optional)</label>
+              <input type="text" id="name" class="form-control" maxlength="30">
+            </div>
+
+            <div class="mb-3">
+              <p class="fw-semibold mb-2">Are you safe right now? *</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="safe" id="safeYes" value="yes" required>
+                <label class="form-check-label" for="safeYes">Yes, I am safe</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="safe" id="safeNo" value="no">
+                <label class="form-check-label" for="safeNo">No, I am in danger</label>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <p class="fw-semibold mb-2">Tick anything that has happened</p>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="signs" id="s1" value="2">
+                <label class="form-check-label" for="s1">Someone insults, humiliates or controls me</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="signs" id="s2" value="3">
+                <label class="form-check-label" for="s2">Someone threatens me or my family</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="signs" id="s3" value="4">
+                <label class="form-check-label" for="s3">Someone has hurt me physically</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="signs" id="s4" value="4">
+                <label class="form-check-label" for="s4">Someone forced me into sexual acts</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="signs" id="s5" value="2">
+                <label class="form-check-label" for="s5">Someone controls my money or tracks my phone</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="signs" id="s6" value="2">
+                <label class="form-check-label" for="s6">I am harassed or threatened online</label></div>
+            </div>
+
+            <div class="mb-4">
+              <label for="how" class="form-label fw-semibold">How would you like to get help?</label>
+              <select id="how" class="form-select">
+                <option value="call">Phone call</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="report">Police report</option>
+              </select>
+            </div>
+
+            <div id="formError" class="text-danger small mb-3"></div>
+            <button type="submit" class="btn btn-brand"><i class="bi bi-check2-circle"></i> See my result</button>
+            <button type="reset" class="btn btn-purple ms-2" id="resetBtn">Clear</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Output method 1: innerHTML writes here -->
+      <div class="col-12">
+        <div id="result" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <p class="text-muted small mt-4 mb-0">This check is not a diagnosis or legal advice. It does not
+    save or send your answers anywhere.</p>
+  </div>
+</section>
+
+<!-- Popup dialog (Bootstrap modal) -->
+<div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border-radius:22px;">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="resultModalLabel">Your result</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer border-0">
+        <a href="{% url 'hotline' %}" class="btn btn-brand">See hotlines</a>
+        <button type="button" class="btn btn-purple" id="summaryBtn">Open printable summary</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'pages/safety.js' %}"></script>
+{% endblock %}

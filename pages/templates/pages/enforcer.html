@@ -1,0 +1,30 @@
+{% extends 'pages/base.html' %}
+{% block title %}Enforcer{% endblock %}
+
+{% block header %}
+<section class="page-hero">
+  <div class="container">
+    <div class="crumb">Get support</div>
+    <h1>Agencies and enforcers</h1>
+    <p>The authorities and organisations that respond to gender-based violence in Malaysia.</p>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      {% for a in agencies %}
+      <div class="col-md-6 col-lg-4">
+        <div class="soft-card">
+          <div class="icon-badge"><i class="bi {{ a.icon }}"></i></div>
+          <h5>{{ a.title }}</h5>
+          <p>{{ a.desc }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

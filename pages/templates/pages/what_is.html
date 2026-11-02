@@ -1,0 +1,43 @@
+{% extends 'pages/base.html' %}
+{% block title %}What Is GBV{% endblock %}
+
+{% block header %}
+<section class="page-hero">
+  <div class="container">
+    <div class="crumb">Learn</div>
+    <h1>What is gender-based violence?</h1>
+    <p>{{ definition }}</p>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container" style="max-width: 860px;">
+    <h2 class="mb-2">Types of GBV</h2>
+    <p class="text-muted mb-4">Tap a card to read more. Violence can take many forms, and it is not only physical.</p>
+
+    <div class="accordion" id="gbvTypes">
+      {% for t in types %}
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#t{{ forloop.counter }}">
+            <i class="bi {{ t.icon }}"></i> {{ t.title }}
+          </button>
+        </h2>
+        <div id="t{{ forloop.counter }}" class="accordion-collapse collapse" data-bs-parent="#gbvTypes">
+          <div class="accordion-body">{{ t.desc }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="soft-card mt-5 text-center">
+      <h5>Need to talk to someone?</h5>
+      <p class="mb-3">You are not alone, and help is available at any time.</p>
+      <a href="{% url 'hotline' %}" class="btn btn-brand">See hotlines</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

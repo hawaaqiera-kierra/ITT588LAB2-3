@@ -1,0 +1,34 @@
+{% extends 'pages/base.html' %}
+{% block title %}Law Enforcement{% endblock %}
+
+{% block header %}
+<section class="page-hero">
+  <div class="container">
+    <div class="crumb">Your rights</div>
+    <h1>Laws that protect victims in Malaysia</h1>
+    <p>These laws give victims ways to report, seek protection and hold offenders accountable.</p>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      {% for law in laws %}
+      <div class="col-md-6">
+        <div class="soft-card d-flex gap-3">
+          <div class="icon-badge orange"><i class="bi {{ law.icon }}"></i></div>
+          <div>
+            <h5>{{ law.title }}</h5>
+            <p>{{ law.desc }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="text-muted small mt-4 mb-0">This page is general information, not legal advice.
+    Contact the Legal Aid Department for help with your situation.</p>
+  </div>
+</section>
+{% endblock %}

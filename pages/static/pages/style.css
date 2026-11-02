@@ -1,0 +1,174 @@
+/* ===== Stop GBV Malaysia: custom theme ===== */
+:root {
+  --purple: #0f766e;
+  --purple-dark: #0b3d3a;
+  --purple-soft: #e6f6f4;
+  --orange: #ff6b57;
+  --orange-dark: #e5503c;
+  --cream: #fbfdfc;
+  --ink: #2a2233;
+  --muted: #6b6475;
+}
+
+body {
+  font-family: 'Poppins', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+h1, h2, h3, h4, h5 { font-weight: 700; color: var(--purple-dark); }
+a { color: var(--purple); }
+
+/* ---- Emergency strip ---- */
+.emergency-bar {
+  background: var(--purple-dark);
+  color: #fff;
+  font-size: .85rem;
+  text-align: center;
+  padding: .45rem 1rem;
+}
+.emergency-bar a { color: var(--orange); font-weight: 600; text-decoration: none; }
+
+/* ---- Navbar ---- */
+.site-nav {
+  background: rgba(255, 250, 245, .92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #eadff5;
+}
+.site-nav .navbar-brand { font-weight: 700; color: var(--purple-dark); }
+.site-nav .navbar-brand .dot { color: var(--orange); }
+.site-nav .nav-link { color: var(--ink); font-weight: 500; border-radius: 999px; padding: .45rem 1rem !important; }
+.site-nav .nav-link:hover { background: var(--purple-soft); }
+.site-nav .nav-link.active { background: var(--purple); color: #fff; }
+
+/* ---- Buttons ---- */
+.btn-brand {
+  background: var(--orange); border: none; color: #fff;
+  font-weight: 600; border-radius: 999px; padding: .7rem 1.6rem;
+  box-shadow: 0 6px 18px rgba(255, 122, 26, .35);
+  transition: transform .15s, background .15s;
+}
+.btn-brand:hover { background: var(--orange-dark); color: #fff; transform: translateY(-2px); }
+.btn-ghost {
+  border: 2px solid rgba(255,255,255,.7); color: #fff;
+  font-weight: 600; border-radius: 999px; padding: .65rem 1.5rem;
+}
+.btn-ghost:hover { background: #fff; color: var(--purple-dark); }
+.btn-purple {
+  background: var(--purple); color: #fff; border: none;
+  border-radius: 999px; font-weight: 600; padding: .6rem 1.4rem;
+}
+.btn-purple:hover { background: var(--purple-dark); color: #fff; }
+
+/* ---- Hero (home) ---- */
+.hero {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(255,122,26,.45), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(176,112,255,.35), transparent 40%),
+    linear-gradient(135deg, var(--purple-dark), var(--purple));
+  color: #fff;
+  padding: 5rem 0 6rem;
+  border-radius: 0 0 48px 48px;
+}
+.hero h1 { color: #fff; font-size: clamp(2.1rem, 5vw, 3.6rem); line-height: 1.15; }
+.hero h1 span { color: var(--orange); }
+.hero .lead { color: #e9ddf5; max-width: 560px; }
+.hero-badge {
+  display: inline-block; background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.3);
+  padding: .35rem .9rem; border-radius: 999px; font-size: .85rem; margin-bottom: 1.2rem;
+}
+.hero-card {
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 24px; padding: 1.6rem; backdrop-filter: blur(6px);
+}
+.hero-card .big { font-size: 2.6rem; font-weight: 800; color: var(--orange); line-height: 1; }
+
+/* ---- Page header (inner pages) ---- */
+.page-hero {
+  background: linear-gradient(135deg, var(--purple-dark), var(--purple));
+  color: #fff; padding: 3.2rem 0 4rem;
+  border-radius: 0 0 36px 36px; margin-bottom: -1.5rem;
+}
+.page-hero h1 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.page-hero p { color: #e9ddf5; max-width: 640px; margin-bottom: 0; }
+.page-hero .crumb { color: var(--orange); font-weight: 600; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; }
+
+/* ---- Cards ---- */
+.soft-card {
+  background: #fff; border: 1px solid #efe6f7; border-radius: 22px;
+  padding: 1.6rem;
+  box-shadow: 0 8px 24px rgba(75, 29, 110, .06);
+  transition: transform .2s, box-shadow .2s;
+}
+.soft-card:hover { transform: translateY(-5px); box-shadow: 0 14px 32px rgba(75, 29, 110, .13); }
+.soft-card h5 { font-size: 1.1rem; margin-bottom: .5rem; }
+.soft-card p { color: var(--muted); margin-bottom: 0; }
+
+.icon-badge {
+  width: 54px; height: 54px; border-radius: 16px;
+  background: var(--purple-soft); color: var(--purple);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 1rem; flex-shrink: 0;
+}
+.icon-badge.orange { background: #ffeadb; color: var(--orange-dark); }
+
+/* ---- Steps ---- */
+.step-num {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--orange); color: #fff; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;
+}
+
+/* ---- Section helpers ---- */
+.section { padding: 4rem 0; }
+.section-title { text-align: center; margin-bottom: 2.5rem; }
+.section-title p { color: var(--muted); }
+.band { background: var(--purple-soft); border-radius: 36px; }
+
+/* ---- Hotline cards ---- */
+.hotline-card { display: flex; flex-direction: column; }
+.hotline-card .number { font-size: 1.5rem; font-weight: 700; color: var(--purple-dark); }
+.hotline-card.urgent { background: linear-gradient(135deg, #fff1e6, #fff); border: 2px solid var(--orange); }
+
+/* ---- Accordion ---- */
+.accordion-item { border: 1px solid #efe6f7 !important; border-radius: 18px !important; margin-bottom: .8rem; overflow: hidden; }
+.accordion-button { font-weight: 600; color: var(--purple-dark); padding: 1.1rem 1.3rem; }
+.accordion-button:not(.collapsed) { background: var(--purple-soft); color: var(--purple-dark); box-shadow: none; }
+.accordion-button:focus { box-shadow: 0 0 0 .2rem rgba(255, 122, 26, .25); }
+.accordion-button i { color: var(--orange); margin-right: .8rem; font-size: 1.2rem; }
+
+/* ---- Forms ---- */
+.form-control { border-radius: 14px; padding: .8rem 1rem; border: 1px solid #dccdee; }
+.form-control:focus { border-color: var(--orange); box-shadow: 0 0 0 .2rem rgba(255,122,26,.2); }
+
+/* ---- Quick exit (floating) ---- */
+.quick-exit {
+  position: fixed; right: 18px; bottom: 18px; z-index: 2000;
+  background: #d62839; color: #fff; border: none; border-radius: 999px;
+  padding: .85rem 1.3rem; font-weight: 700;
+  box-shadow: 0 8px 22px rgba(214, 40, 57, .5);
+}
+.quick-exit:hover { background: #b81f2e; color: #fff; }
+
+/* ---- Footer ---- */
+.site-footer { background: var(--purple-dark); color: #d9cbe8; padding: 2.5rem 0 5rem; margin-top: 3rem; }
+.site-footer a { color: var(--orange); }
+.site-footer h6 { color: #fff; }
+
+/* ---- Accessibility ---- */
+a:focus-visible, button:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* ---- Equal-height cards ----
+   Only a card that is the SOLE child of its column stretches to full height.
+   Columns holding two cards (Contact page, right side) keep natural heights. */
+.row > [class*="col"] > .soft-card:only-child,
+.row > [class*="col"] > a:only-child > .soft-card { height: 100%; }
+
+/* ---- Keep the footer above anything that overflows ---- */
+main { position: relative; z-index: 1; }
+.site-footer { position: relative; z-index: 2; clear: both; }

@@ -1,0 +1,42 @@
+{% extends 'pages/base.html' %}
+{% block title %}Hotline{% endblock %}
+
+{% block header %}
+<section class="page-hero">
+  <div class="container">
+    <div class="crumb">24/7 support</div>
+    <h1>Emergency directory and hotlines</h1>
+    <p>On a phone, tap Call to dial straight away. Calls to these services are confidential.</p>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      {% for h in hotlines %}
+      <div class="col-md-6">
+        <div class="soft-card hotline-card {% if h.urgent %}urgent{% endif %}">
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <div class="icon-badge {% if h.urgent %}orange{% endif %} mb-0"><i class="bi {{ h.icon }}"></i></div>
+            <div>
+              <h5 class="mb-0">{{ h.name }}</h5>
+              <div class="number">{{ h.display }}</div>
+            </div>
+          </div>
+          <p class="mb-3">{{ h.desc }}</p>
+          <div class="d-flex flex-wrap gap-2 mt-auto">
+            <a href="tel:{{ h.tel }}" class="btn btn-brand"><i class="bi bi-telephone-fill"></i> Call</a>
+            {% if h.whatsapp %}
+            <a href="https://wa.me/{{ h.whatsapp }}" target="_blank" rel="noopener" class="btn btn-purple">
+              <i class="bi bi-whatsapp"></i> WhatsApp</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
